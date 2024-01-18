@@ -1,4 +1,8 @@
 defmodule FoodFavor.Poducts.Product do
+  @moduledoc """
+  Module for the Product schema and changesets
+  """
+
   use FoodFavor.Schema
   import Ecto.Changeset
 
