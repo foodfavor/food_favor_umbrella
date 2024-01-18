@@ -5,7 +5,11 @@ defmodule FoodFavorWeb.ProductLiveTest do
   import FoodFavor.PoductsFixtures
 
   @create_attrs %{description: "some description", title: "some title", category: "some category"}
-  @update_attrs %{description: "some updated description", title: "some updated title", category: "some updated category"}
+  @update_attrs %{
+    description: "some updated description",
+    title: "some updated title",
+    category: "some updated category"
+  }
   @invalid_attrs %{description: nil, title: nil, category: nil}
 
   defp create_product(_) do

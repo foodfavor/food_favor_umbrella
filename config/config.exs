@@ -13,6 +13,8 @@ import Config
 config :food_favor,
   ecto_repos: [FoodFavor.Repo]
 
+config :food_favor, FoodFavor.Repo, migration_timestamps: [type: :utc_datetime]
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
