@@ -21,7 +21,11 @@ defmodule FoodFavor.PoductsTest do
     end
 
     test "create_product/1 with valid data creates a product" do
-      valid_attrs = %{description: "some description", title: "some title", category: "some category"}
+      valid_attrs = %{
+        description: "some description",
+        title: "some title",
+        category: "some category"
+      }
 
       assert {:ok, %Product{} = product} = Poducts.create_product(valid_attrs)
       assert product.description == "some description"
@@ -35,7 +39,12 @@ defmodule FoodFavor.PoductsTest do
 
     test "update_product/2 with valid data updates the product" do
       product = product_fixture()
-      update_attrs = %{description: "some updated description", title: "some updated title", category: "some updated category"}
+
+      update_attrs = %{
+        description: "some updated description",
+        title: "some updated title",
+        category: "some updated category"
+      }
 
       assert {:ok, %Product{} = product} = Poducts.update_product(product, update_attrs)
       assert product.description == "some updated description"

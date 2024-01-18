@@ -23,7 +23,7 @@ defmodule FoodFavorWeb.MixProject do
   def application do
     [
       mod: {FoodFavorWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -36,21 +36,22 @@ defmodule FoodFavorWeb.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:ecto_psql_extras, "~> 0.6"},
+      {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
+      {:floki, ">= 0.30.0", only: :test},
+      {:food_favor, in_umbrella: true},
+      {:gettext, "~> 0.20"},
+      {:jason, "~> 1.2"},
       {:phoenix, "~> 1.7.10"},
       {:phoenix_ecto, "~> 4.4"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.1"},
-      {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8.2"},
-      {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
+      {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 1.0"},
-      {:gettext, "~> 0.20"},
-      {:food_favor, in_umbrella: true},
-      {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:telemetry_poller, "~> 1.0"}
     ]
   end
 

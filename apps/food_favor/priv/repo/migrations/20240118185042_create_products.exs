@@ -4,9 +4,9 @@ defmodule FoodFavor.Repo.Migrations.CreateProducts do
   def change do
     create table(:products, primary_key: false) do
       add :id, :binary_id, primary_key: true
-      add :title, :string
-      add :category, :string
-      add :description, :string
+      add :title, :text
+      add :category, :text
+      add :description, :text
 
       timestamps()
     end
