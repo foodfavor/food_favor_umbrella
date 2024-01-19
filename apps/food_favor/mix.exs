@@ -37,12 +37,12 @@ defmodule FoodFavor.MixProject do
   defp deps do
     [
       {:dns_cluster, "~> 0.1.1"},
-      {:phoenix_pubsub, "~> 2.1"},
       {:ecto_sql, "~> 3.10"},
-      {:postgrex, ">= 0.0.0"},
+      {:finch, "~> 0.13"},
       {:jason, "~> 1.2"},
-      {:swoosh, "~> 1.3"},
-      {:finch, "~> 0.13"}
+      {:phoenix_pubsub, "~> 2.1"},
+      {:postgrex, ">= 0.0.0"},
+      {:swoosh, "~> 1.3"}
     ]
   end
 
