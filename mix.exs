@@ -7,7 +7,15 @@ defmodule FoodFavor.Umbrella.MixProject do
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      releases: [
+        food_favor_umbrella: [
+          applications: [
+            food_favor: :permanent,
+            food_favor_web: :permanent
+          ]
+        ]
+      ]
     ]
   end
 
