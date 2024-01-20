@@ -1,0 +1,44 @@
+name: Elixir Quality Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  quality_checks:
+    name: Formatting, Credo, and Unused Deps
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Elixir Project
+        uses: ./.github/actions/elixir-setup
+        with:
+          build-app: false
+
+      - name: Check for unused deps
+        run: mix deps.unlock --check-unused
+      - name: Check for retired hex packages (mix hex.audit)
+        run: mix hex.audit
+        if: always()
+      - name: Check for security vulnerabilities in hex packages (mix deps.audit)
+        run: mix deps.audit
+        if: always()
+      - name: Check code formatting
+        run: mix format --check-formatted
+        if: always()
+      - name: Run Credo
+        run: mix credo suggest --min-priority=normal
+        if: always()
+      - name: Check for compile-time dependencies
+        run: mix xref graph --label compile-connected --fail-above 0
+        if: always()
+      - name: Check for security vulnerabilities in Phoenix project (sobelow)
+        run: mix sobelow
+        if: always()
