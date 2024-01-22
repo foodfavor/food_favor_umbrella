@@ -7,6 +7,8 @@ defmodule FoodFavor.Application do
 
   @impl true
   def start(_type, _args) do
+    Logger.add_backend(Sentry.LoggerBackend)
+
     children = [
       FoodFavor.Repo,
       {DNSCluster, query: Application.get_env(:food_favor, :dns_cluster_query) || :ignore},
