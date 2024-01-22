@@ -39,6 +39,24 @@ config :food_favor_web, FoodFavorWeb.Endpoint,
   pubsub_server: FoodFavor.PubSub,
   live_view: [signing_salt: "qx67PaWb"]
 
+# Configures Sentry logging
+config :sentry,
+  dsn:
+    "https://1b8711b48709671ec8e1258e12c46030@o4506615880613888.ingest.sentry.io/4506615881138176",
+  environment_name: Mix.env(),
+  enable_source_code_context: true,
+  root_source_code_paths: [File.cwd!()]
+
+config :logger, Sentry.LoggerBackend,
+  # Also send warning messages
+  level: :warning,
+  # Send messages from Plug/Cowboy
+  excluded_domains: [],
+  # Include metadata added with `Logger.metadata([foo_bar: "value"])`
+  metadata: [:errors],
+  # Send messages like `Logger.error("error")` to Sentry
+  capture_log_messages: true
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

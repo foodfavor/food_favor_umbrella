@@ -40,10 +40,11 @@ defmodule FoodFavor.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:ecto_sql, "~> 3.10"},
       {:finch, "~> 0.13"},
-      {:jason, "~> 1.2"},
+      {:hackney, "~> 1.19"},
+      {:jason, "~> 1.4"},
       {:phoenix_pubsub, "~> 2.1"},
       {:postgrex, ">= 0.0.0"},
-      {:swoosh, "~> 1.3"}
+      {:sentry, "~> 10.0"},
       {:swoosh, "~> 1.3"},
       {:typed_struct, "~> 0.3.0"}
     ]
