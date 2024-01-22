@@ -44,6 +44,8 @@ defmodule FoodFavor.MixProject do
       {:phoenix_pubsub, "~> 2.1"},
       {:postgrex, ">= 0.0.0"},
       {:swoosh, "~> 1.3"}
+      {:swoosh, "~> 1.3"},
+      {:typed_struct, "~> 0.3.0"}
     ]
   end
 
