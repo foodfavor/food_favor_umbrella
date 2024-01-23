@@ -20,12 +20,14 @@ defmodule FoodFavor.DataCase do
 
   using do
     quote do
-      alias FoodFavor.Repo
+      use FoodFavor.LogHelper
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
       import FoodFavor.DataCase
+
+      alias FoodFavor.Repo
     end
   end
 
